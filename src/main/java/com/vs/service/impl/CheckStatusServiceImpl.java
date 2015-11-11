@@ -18,7 +18,7 @@ public class CheckStatusServiceImpl implements CheckStatusService {
 	RestorantDao restorantDao;
 	
 	@Override
-	@Transactional(isolation = Isolation.SERIALIZABLE)
+	@Transactional(isolation = Isolation.READ_COMMITTED)
 	public Collection<Restorant> getStatus() {
 		return restorantDao.getRestorants();
 	}
