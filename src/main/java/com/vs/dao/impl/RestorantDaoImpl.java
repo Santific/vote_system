@@ -22,7 +22,7 @@ public class RestorantDaoImpl implements RestorantDao {
 
     @Override
 	public void save(Restorant restorant) {
-		em.persist(restorant);		
+		em.persist(restorant);
 	}
 
 	@Override

@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.vs.datamodel.Restorant;
 import com.vs.exception.DishNotFoundException;
 import com.vs.exception.RestorantAlreadyExistsException;
 import com.vs.exception.RestorantNotFoundException;
 import com.vs.model.AddDishResult;
+import com.vs.model.Menu;
+import com.vs.model.RestorantVotes;
 import com.vs.model.VoteResult;
+import com.vs.service.CheckDayliStatusService;
 import com.vs.service.MenuService;
-import com.vs.service.CheckStatusService;
 import com.vs.service.VoteService;
 
 @Controller
@@ -33,7 +33,7 @@ public class VsController {
 	MenuService menuService;
 	
 	@Autowired
-	CheckStatusService checkMenuService;
+	CheckDayliStatusService checkDayliStatusService;
 	
 	@Autowired
 	VoteService voteService;
@@ -101,9 +101,15 @@ public class VsController {
     }
     
 	@ResponseBody
-	@RequestMapping(value = "/user/status", method = RequestMethod.GET)
-	public Collection<Restorant> getStatus() throws JsonProcessingException {
-		return checkMenuService.getStatus();
+	@RequestMapping(value = "/user/menus", method = RequestMethod.GET)
+	public Collection<Menu> getMenus() {
+		return checkDayliStatusService.getDailyRestorantsMenus();
+	}
+    
+	@ResponseBody
+	@RequestMapping(value = "/admin/votes", method = RequestMethod.GET)
+	public Collection<RestorantVotes> getVotes() {
+		return checkDayliStatusService.getDailyRestorantsVotes();
 	}
     
 	@ResponseBody

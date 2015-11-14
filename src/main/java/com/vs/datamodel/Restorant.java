@@ -29,7 +29,7 @@ public class Restorant implements Serializable {
 		this.name = name;
 	}
 
-	@OneToMany(mappedBy="dishKey.restorantName", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy="dishKey.restorantName", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	public Collection<Dish> getDishes() {
 		return dishes;
 	}
@@ -38,7 +38,7 @@ public class Restorant implements Serializable {
 		this.dishes = dishes;
 	}
 	
-	@OneToMany(mappedBy="restorantName", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy="restorantName", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	public Collection<Vote> getVotes() {
 		return votes;
 	}
