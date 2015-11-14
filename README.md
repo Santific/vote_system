@@ -1,4 +1,4 @@
-<p>Install Postgres database. Provide user with admin rights - postgres: admin123. It must contain schema "public"</p>
+<p>Install Postgres database. Provide user with read and write rights - postgres: admin123. It must contain schema "public"</p>
 <p></p>
 <p>for start application use: mvn clean spring-boot:run</p>
 <p>Ithen use information below to test it:</p>
