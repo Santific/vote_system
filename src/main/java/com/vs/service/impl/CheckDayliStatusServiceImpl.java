@@ -47,7 +47,7 @@ public class CheckDayliStatusServiceImpl implements CheckDayliStatusService {
 			LinkedList<Menu.Dish> dishes = new LinkedList<Menu.Dish>();
 			for (Dish dish : dishDao.getDishes(restorant.getName(), Date.valueOf(localDate))) {
 				Menu.Dish dish_ = menu.new Dish();
-				dish_.setName(dish.getDishKey().getDishName());
+				dish_.setName(dish.getKey().getDishName());
 				dish_.setPrice(dish.getPrice());
 				dishes.add(dish_);
 			}

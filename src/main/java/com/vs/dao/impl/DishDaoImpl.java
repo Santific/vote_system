@@ -44,8 +44,8 @@ public class DishDaoImpl implements DishDao {
         CriteriaQuery<Dish> cq = cb.createQuery(Dish.class);
         Root<Dish> r = cq.from(Dish.class);
         CriteriaQuery<Dish> q = cq.select(r)
-        		.where(cb.and(cb.equal(r.get("dishKey").get("restorantName"), restorantName)),
-        				cb.equal(r.get("dishKey").get("date"), date));
+        		.where(cb.and(cb.equal(r.get("key").get("restorantName"), restorantName)),
+        				cb.equal(r.get("key").get("date"), date));
         List<Dish> restorants = em.createQuery(q).getResultList();
         return restorants;		
 	}

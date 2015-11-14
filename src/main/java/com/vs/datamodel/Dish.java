@@ -13,15 +13,15 @@ import javax.persistence.Table;
 public class Dish implements Serializable {
 	
     @EmbeddedId
-    private DishKey dishKey;
+    private DishKey key;
 	private Float price;
 
-	public DishKey getDishKey() {
-		return dishKey;
+	public DishKey getKey() {
+		return key;
 	}
 
-	public void setDishKey(DishKey dishKey) {
-		this.dishKey = dishKey;
+	public void setDishKey(DishKey key) {
+		this.key = key;
 	}
 	
 	@Column(name = "price", nullable = false)
